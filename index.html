@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>华体会 · 稳定入口说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f9f6f0;
+      font-family: 'Georgia', 'Times New Roman', '宋体', 'SimSun', serif;
+      color: #2e2b28;
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+    }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #fefcf7;
+      padding: 2.5rem 2.2rem;
+      border-radius: 2px;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    /* 开场短句 */
+    .opening {
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #3b3530;
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .opening small {
+      display: block;
+      margin-top: 0.3rem;
+      font-size: 1rem;
+      color: #8a7f76;
+      font-weight: 300;
+    }
+
+    .divider-rule {
+      border: none;
+      height: 1px;
+      background: #e4ddd4;
+      margin: 2rem 0;
+    }
+
+    /* 承接段落 */
+    .intro-text {
+      font-size: 1.05rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .intro-text p {
+      margin-bottom: 1.2rem;
+    }
+
+    /* 引用 / 提示框 */
+    .inset-box {
+      background: #f3efe8;
+      border-left: 5px solid #b8a99b;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      font-style: normal;
+      border-radius: 0 4px 4px 0;
+      color: #3d3732;
+    }
+
+    .inset-box strong {
+      font-weight: 600;
+      color: #4d4037;
+    }
+
+    /* 特点列表 —— 叙事式 */
+    .feature-set {
+      list-style: none;
+      margin: 2rem 0 1.8rem 0;
+    }
+
+    .feature-set li {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 1.1rem;
+      font-size: 1rem;
+    }
+
+    .feature-set li::before {
+      content: "·";
+      position: absolute;
+      left: 0.4rem;
+      font-size: 1.5rem;
+      line-height: 1;
+      color: #b8a99b;
+    }
+
+    .feature-set li span {
+      font-weight: 500;
+      color: #4d4037;
+    }
+
+    /* 温和结尾 */
+    .closing-note {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e4ddd4;
+      font-size: 0.98rem;
+      color: #5c534b;
+    }
+
+    .closing-note a {
+      color: #6d5f53;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: background 0.2s;
+    }
+
+    .closing-note a:hover {
+      background: #ede7df;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .page {
+        padding: 1.8rem 1.2rem;
+      }
+      .opening {
+        font-size: 1.6rem;
+      }
+      .inset-box {
+        padding: 1rem 1.2rem;
+      }
+      .feature-set li {
+        padding-left: 1.6rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .opening {
+        font-size: 1.3rem;
+      }
+      .intro-text {
+        font-size: 0.98rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- 开场短句 -->
+    <div class="opening">
+      一个入口，一句话。<br />
+      <small>界面简洁，指向明确，无需反复寻路。</small>
+    </div>
+
+    <hr class="divider-rule" />
+
+    <!-- 承接段落 —— 从稳定入口和页面说明的角度展开 -->
+    <div class="intro-text">
+      <p>
+        许多在线服务常常因为入口分散、说明冗长而让人耗费额外精力。对于长期使用的用户而言，一个清晰、固定的路径比什么都重要。正因如此，我们始终把「直达」作为基本设计原则——无论你身处何种设备或网络环境，都希望你能快速定位到核心内容所在。
+      </p>
+      <p>
+        一个可靠的入口不仅仅是一个链接，它背后是持续的维护、简洁的页面布局以及对用户体验的克制思考。在信息过载的今天，减少中间环节、直接呈现关键选项，反而成为最有效的帮助。
+      </p>
+    </div>
+
+    <!-- 提示框 / 引用块 —— 强调说明的价值 -->
+    <div class="inset-box">
+      <strong>页面说明：</strong> 本页作为静态介绍页，主要作用是指明主站位置，并梳理常见的使用前提。所有功能与内容均以主站实际版本为准。
+    </div>
+
+    <!-- 特点列表：叙事式说明稳定入口的要素 -->
+    <ul class="feature-set">
+      <li><span>直接可访问</span> —— 不需要多次跳转或额外注册，打开即可看到内容框架。</li>
+      <li><span>长期维护</span> —— 入口地址保持稳定，并定期检查可用性，避免死链或失效页面。</li>
+      <li><span>低干扰设计</span> —— 无强制弹窗、无自动播放，仅提供必要的导航指向。</li>
+      <li><span>场景覆盖</span> —— 无论是日常浏览还是临时查阅，均可通过同一个地址完成。</li>
+    </ul>
+
+    <!-- 温和结尾 —— 自然嵌入链接文本为「华体会」 -->
+    <div class="closing-note">
+      如果你正在寻找一个结构清晰、常年可用的起始页面，不妨直接从<a href="https://sitehth.com.cn">华体会</a>开始。这里没有多余的装饰，只有经过梳理的信息入口。希望它能在你需要时，提供一份稳定的支持。
+    </div>
+
+    <!-- 底部细线（视觉收束） -->
+    <hr class="divider-rule" style="margin-top: 2.2rem; margin-bottom: 0.5rem;" />
+    <p style="font-size: 0.75rem; color: #b3a89e; letter-spacing: 1px; text-align: right;">简洁 · 稳定 · 直达</p>
+  </div>
+</body>
+</html>

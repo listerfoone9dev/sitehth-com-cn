@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://listerfoone9dev.github.io/sitehth-com-cn/sitemap.xml
