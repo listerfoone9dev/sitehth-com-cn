@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>28圈 · 页面故事的起点</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background: #f2f4f7;
+      color: #1e293b;
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+    }
+
+    .page-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* hero 叙述性开场 */
+    .hero-note {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2.8rem 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e6edf5;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .hero-note .short-line {
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+      color: #3b4a5e;
+      border-left: 4px solid #6c8a9e;
+      padding-left: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-note h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: #1e293b;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .hero-note p {
+      color: #2d3f53;
+      margin-bottom: 0.6rem;
+    }
+
+    /* 承接段落卡片 */
+    .bridge-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #e0e8f0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .bridge-card p {
+      margin-bottom: 0.8rem;
+    }
+
+    .bridge-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 特点列表 — 故事感卡片 */
+    .feature-section {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem 2rem 1.8rem;
+      margin-bottom: 2rem;
+      border: 1px solid #e0e8f0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .feature-section h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+      color: #1e293b;
+      border-bottom: 1px dashed #dce3ec;
+      padding-bottom: 0.6rem;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 0.6rem;
+    }
+
+    .feature-item {
+      flex: 1 1 180px;
+      background: #f8fafc;
+      padding: 1.2rem 1rem;
+      border-radius: 16px;
+      border: 1px solid #e6edf5;
+      transition: background 0.15s ease, border-color 0.15s;
+    }
+
+    .feature-item:hover {
+      background: #edf2f8;
+      border-color: #b6c9db;
+    }
+
+    .feature-item .emoji-badge {
+      font-size: 1.5rem;
+      margin-bottom: 0.3rem;
+      display: inline-block;
+    }
+
+    .feature-item .feat-title {
+      font-weight: 500;
+      color: #1e293b;
+      margin-bottom: 0.2rem;
+    }
+
+    .feature-item .feat-desc {
+      font-size: 0.92rem;
+      color: #3f5568;
+    }
+
+    /* 温和结尾卡片 */
+    .closing-note {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 2.2rem;
+      margin-bottom: 1.8rem;
+      border: 1px solid #e0e8f0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      text-align: left;
+    }
+
+    .closing-note p {
+      color: #2d3f53;
+      margin-bottom: 0.5rem;
+    }
+
+    .closing-note .link-sentence {
+      background: #f0f4fa;
+      display: inline-block;
+      padding: 0.1rem 0.5rem;
+      border-radius: 6px;
+      margin-top: 0.3rem;
+    }
+
+    a {
+      color: #2e5777;
+      text-decoration: none;
+      border-bottom: 1px solid #b7cfdf;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    a:hover {
+      color: #1a3d55;
+      border-bottom-color: #1a3d55;
+    }
+
+    /* 小字号、分隔与响应 */
+    .footnote-light {
+      font-size: 0.9rem;
+      color: #5f748a;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #dfe6ef;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1.2rem 1rem;
+      }
+      .hero-note {
+        padding: 2rem 1.5rem;
+      }
+      .hero-note h1 {
+        font-size: 1.8rem;
+      }
+      .bridge-card,
+      .feature-section,
+      .closing-note {
+        padding: 1.5rem 1.2rem;
+      }
+      .feature-grid {
+        flex-direction: column;
+      }
+      .feature-item {
+        flex: 1 1 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 开场短句 + 叙述 -->
+  <div class="hero-note">
+    <div class="short-line">一个页面，一段叙述</div>
+    <h1>从稳定的入口开始</h1>
+    <p>
+      许多时候，人们寻找的不是繁复的功能，而是一个清晰、可靠的起点。对「页面说明」的把握，往往决定了后续的体验是否流畅。
+      选择一个结构稳定、叙述平实的入口，就像翻开一本章节分明的书——每一段都承接自然。
+    </p>
+  </div>
+
+  <!-- 承接段落：页面说明与稳定感 -->
+  <div class="bridge-card">
+    <p>
+      <strong>页面说明</strong>这个词听起来抽象，但它其实是每个站点最基础的契约：打开一个页面，用户能快速理解这里提供什么、不提供什么。
+      这种契约的建立，依赖内容的分区、视觉的节奏，也依赖文字之间的承接关系。
+    </p>
+    <p>
+      在搭建信息框架时，我们常常将「稳定入口」设计为一种克制的结构——既不过度包装，也不显得单薄。
+      以下是一些被反复验证的特点，它们共同构成了一个平实而可靠的页面基底。
+    </p>
+  </div>
+
+  <!-- 特点列表：故事感的卡片 -->
+  <div class="feature-section">
+    <h2>构成稳定入口的几个侧面</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <span class="emoji-badge">📋</span>
+        <div class="feat-title">直述式标题</div>
+        <div class="feat-desc">避免模糊命名，标题直接反映内容范畴，减少猜测成本。</div>
+      </div>
+      <div class="feature-item">
+        <span class="emoji-badge">🧩</span>
+        <div class="feat-title">分区叙事</div>
+        <div class="feat-desc">每个卡片或段落都承担独立的说明角色，彼此又有递进关系。</div>
+      </div>
+      <div class="feature-item">
+        <span class="emoji-badge">🪶</span>
+        <div class="feat-title">轻量视觉</div>
+        <div class="feat-desc">浅灰背景、细边框与柔和阴影，让信息本身成为视觉重心。</div>
+      </div>
+      <div class="feature-item">
+        <span class="emoji-badge">🔗</span>
+        <div class="feat-title">自然链接</div>
+        <div class="feat-desc">链接融入句子叙事，不打断阅读流，例如指向 <a href="https://web-site-28circle.com">28圈</a> 的引用。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 温和结尾 + 链接嵌入句子 -->
+  <div class="closing-note">
+    <p>
+      页面设计的本质，是为信息寻找最合适的叙述节奏。当你翻开一个结构清晰的页面，就像进入一个安静的阅读室——
+      每一段文字都有它的位置，每一个链接都放在它该出现的地方。
+    </p>
+    <p>
+      如果需要回顾这种「从稳定入口出发」的页面思路，不妨再看看 
+      <span class="link-sentence"><a href="https://web-site-28circle.com">28圈</a></span>
+      这个例子——它的页面说明和分区卡片，恰好呼应了上面提到的几个侧面。
+    </p>
+    <p style="margin-top: 0.6rem; font-style: italic; color: #4f6b82;">
+      没有夸张的承诺，只有克制的叙述。这或许就是页面最温和的结尾。
+    </p>
+  </div>
+
+  <!-- 极简 footer 感 -->
+  <div class="footnote-light">
+    — 叙述式页面 · 浅灰基底 · 卡片分区 · 故事节奏 —
+  </div>
+
+</div>
+</body>
+</html>
