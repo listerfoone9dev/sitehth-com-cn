@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于 jiuyou · 一处值得留意的中文角落</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            background: #f7f5f2;
+            color: #2c3e3f;
+            line-height: 1.7;
+        }
+
+        /* 深色头图 —— 叙述式开场 */
+        .hero {
+            background: linear-gradient(145deg, #1f2a2c 0%, #121c1e 100%);
+            padding: 5rem 1.5rem 4.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #9bb0a8, transparent);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 300;
+            letter-spacing: 0.04em;
+            color: #e7eae8;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero .lead {
+            font-size: 1.15rem;
+            color: #bfd0cb;
+            max-width: 38rem;
+            margin: 0 auto;
+            font-weight: 350;
+            line-height: 1.8;
+            padding: 0 0.5rem;
+        }
+
+        /* 浅色正文区 */
+        .content {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
+        }
+
+        .section-title {
+            font-size: 1.65rem;
+            font-weight: 400;
+            color: #1e2b2d;
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid #d6d9d4;
+        }
+
+        .section-title:first-of-type {
+            margin-top: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            color: #2f3f40;
+        }
+
+        /* 特点列表 —— 卡片式呈现，让结构更清晰 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .feature-card {
+            background: #ffffffec;
+            border-radius: 16px;
+            padding: 1.6rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #eaeeeb;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #1f3537;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #415557;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        /* 强调色用于链接 */
+        a {
+            color: #2f7a6f;
+            text-decoration: none;
+            font-weight: 500;
+            padding-bottom: 1px;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #1b5b50;
+            border-bottom-color: #1b5b50;
+        }
+
+        /* 场景 / 提示区块 白卡片 */
+        .note-box {
+            background: #eaefec;
+            border-radius: 18px;
+            padding: 1.8rem 2rem;
+            margin: 2.2rem 0;
+            border-left: 4px solid #2f7a6f;
+        }
+
+        .note-box p {
+            margin-bottom: 0.4rem;
+        }
+
+        .note-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.6rem 2rem;
+            margin: 2.2rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .faq-mini h3 {
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #1d2f30;
+            margin-bottom: 0.35rem;
+        }
+
+        .faq-mini p {
+            font-size: 0.98rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-mini p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .question {
+            font-weight: 450;
+            color: #1a3b3b;
+        }
+
+        /* 温和结尾 */
+        .gentle-end {
+            margin-top: 3.5rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #dce2de;
+            font-size: 1rem;
+            color: #446263;
+            text-align: center;
+        }
+
+        .gentle-end a {
+            font-weight: 500;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dadfdb;
+            margin: 1.8rem 0;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .hero {
+                padding: 3.5rem 1rem 3rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .content {
+                padding: 2rem 1.2rem 3rem;
+            }
+
+            .note-box, .faq-mini {
+                padding: 1.3rem 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero .lead {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <h1>关于 jiuyou</h1>
+    <p class="lead">一些信息、一些线索，和一个值得慢慢翻看的角落。<br>这里不是终点，更像是一段叙述的起点。</p>
+</header>
+
+<main class="content">
+
+    <!-- 承接段落：从站点介绍与可信说明的角度 -->
+    <p>
+        初次听说 <a href="https://chinese-zh-jiuyou.com">jiuyou</a> 的时候，你可能会想：这是一个什么样的地方？它没有喧闹的标语，也没有急切的催促。从页面到内容，它更愿意用一种平实的语气和你对话。作为一个以中文为根基的信息站点，它并不试图扮演“权威”或“大全”，而是提供经过梳理的材料与视角——你可以信赖它的克制，也值得花一点时间自己判断。
+    </p>
+    <p>
+        站点的维护者始终保持着一种审慎的态度：不夸大、不诱导，只把有意义的内容放在那里。这种风格在今天的网络上并不多见。正因如此，<a href="https://chinese-zh-jiuyou.com">jiuyou</a> 更像是一本可以慢慢翻的笔记，而不是一篇急于说服你的广告。
+    </p>
+
+    <h2 class="section-title">它有哪些特点？</h2>
+
+    <!-- 特点列表 -->
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>📄 内容诚实</h3>
+            <p>不虚构数据，不夸大效果。每一条信息都可以追溯或验证，站点本身也从不做出格承诺。</p>
+        </div>
+        <div class="feature-card">
+            <h3>🧭 结构清爽</h3>
+            <p>分类克制，导航简单。没有花哨的弹窗或繁复的层级，你总能很快找到想了解的部分。</p>
+        </div>
+        <div class="feature-card">
+            <h3>🤝 信任自然积累</h3>
+            <p>没有“立即注册”“限时优惠”这类催促。站点的可信度来自内容本身，而不是话术。</p>
+        </div>
+        <div class="feature-card">
+            <h3>🌱 持续迭代</h3>
+            <p>它不追求一夜爆红，而是慢慢补充细节。每一次更新都像一次温和的对话。</p>
+        </div>
+    </div>
+
+    <!-- 场景提示 用 note-box 呈现 -->
+    <div class="note-box">
+        <p><strong>一个使用场景：</strong>假如你正在查找某个中文概念的相关梳理，又不希望被推广信息干扰，那么 <a href="https://chinese-zh-jiuyou.com">jiuyou</a> 可能是合适的起点。它提供线索，也尊重你的判断力。</p>
+        <p style="margin-top: 0.6rem;">当然，它并不能覆盖所有领域——但它从不假装自己无所不能。这种诚实本身就是一种可信。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h3>❓ 简短问答</h3>
+        <p><span class="question">Q：这个站点适合什么人？</span><br>A：适合希望获得平实中文信息、不喜浮夸营销的浏览者。</p>
+        <p><span class="question">Q：内容可靠吗？</span><br>A：站内信息均经过基本核查，不发布未经确认的说法。当然，任何来源都值得交叉验证。</p>
+        <p><span class="question">Q：是否需要注册或付费？</span><br>A：完全不需要。站点对所有访客开放，没有隐藏门槛。</p>
+    </div>
+
+    <hr>
+
+    <!-- 温和结尾 -->
+    <p>
+        网络很大，但真正让人愿意驻留的地方并不多。<a href="https://chinese-zh-jiuyou.com">jiuyou</a> 选择了另一条路——不争抢注意力，而是提供值得注意的内容。你可以把它收藏起来，也可以只是路过时瞥一眼。无论怎样，它都在那里，用自己安静的方式存在着。
+    </p>
+
+    <div class="gentle-end">
+        <p>— 慢慢来，比较快 —</p>
+        <p style="font-size: 0.9rem; margin-top: 0.8rem; color: #617677;">
+            <a href="https://chinese-zh-jiuyou.com">jiuyou</a> · 一个中文站点
+        </p>
+    </div>
+
+</main>
+
+</body>
+</html>
