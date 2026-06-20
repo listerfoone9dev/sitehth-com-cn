@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jiuyou.com – 常回来看看</title>
+    <style>
+        /* 全局重置与基调 */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fce9d8 0%, #f7d9c4 60%, #f3cfb0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #2f2b27;
+            line-height: 1.6;
+            padding: 1.5rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2.2rem;
+        }
+
+        /* 白色卡片风格 */
+        .card {
+            background: rgba(255, 252, 248, 0.85);
+            backdrop-filter: blur(2px);
+            border-radius: 2rem;
+            padding: 2rem 2.5rem;
+            box-shadow: 0 12px 28px -8px rgba(120, 70, 40, 0.15), 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: box-shadow 0.25s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 18px 36px -10px rgba(110, 60, 30, 0.2);
+        }
+
+        /* hero 区 */
+        .hero {
+            text-align: center;
+            padding: 3rem 2rem 2.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #3f2c1c;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero .sub-headline {
+            font-size: 1.2rem;
+            color: #6f4e30;
+            background: rgba(230, 200, 170, 0.5);
+            display: inline-block;
+            padding: 0.3rem 1.6rem;
+            border-radius: 40px;
+            margin-bottom: 1.2rem;
+            backdrop-filter: blur(1px);
+        }
+
+        .hero p {
+            max-width: 640px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            color: #3c2d1f;
+        }
+
+        /* 圆角按钮感链接 */
+        a.rounded-link {
+            display: inline-block;
+            background: #e6cbb0;
+            color: #2f241a;
+            text-decoration: none;
+            padding: 0.5rem 1.4rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: background 0.2s, transform 0.1s;
+            border: 1px solid #d9b999;
+        }
+
+        a.rounded-link:hover {
+            background: #dbb999;
+            transform: scale(1.02);
+        }
+
+        .inline-link {
+            color: #8f5e34;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #b17d53;
+        }
+
+        /* 优势网格 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .feature-item {
+            background: rgba(255, 248, 240, 0.7);
+            padding: 1.5rem 1.2rem;
+            border-radius: 1.4rem;
+            border: 1px solid #e1cfbc;
+            transition: background 0.2s;
+        }
+
+        .feature-item:hover {
+            background: rgba(240, 222, 206, 0.6);
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #3f2a16;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #4a3a2a;
+        }
+
+        /* 说明区 */
+        .explain {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .explain-text {
+            flex: 2 1 280px;
+        }
+
+        .explain-text h2 {
+            font-size: 1.6rem;
+            font-weight: 520;
+            border-left: 5px solid #c6a282;
+            padding-left: 1rem;
+            margin-bottom: 0.8rem;
+            color: #3b2b1a;
+        }
+
+        .explain-text p {
+            margin-bottom: 0.8rem;
+        }
+
+        .explain-highlight {
+            flex: 1 1 200px;
+            background: rgba(220, 190, 165, 0.3);
+            padding: 1.4rem 1.2rem;
+            border-radius: 1.8rem;
+            text-align: center;
+            font-style: italic;
+            color: #4c3824;
+            border: 1px dashed #b99273;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.4rem;
+            font-weight: 510;
+            margin-bottom: 0.3rem;
+            color: #3b2b1a;
+        }
+
+        .faq-item {
+            padding: 0.6rem 0 0.6rem 1rem;
+            border-left: 3px solid #dabd9f;
+        }
+
+        .faq-item strong {
+            color: #533d27;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.1rem;
+        }
+
+        .faq-item p {
+            color: #4d3b2a;
+            font-size: 0.95rem;
+        }
+
+        /* 底部 */
+        .site-footer {
+            text-align: center;
+            padding: 1.4rem 0.5rem 0.8rem;
+            border-top: 1px solid #dac2ab;
+            margin-top: 0.6rem;
+            font-size: 0.95rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem 1.8rem;
+        }
+
+        .site-footer a {
+            color: #6f4f31;
+            text-decoration: none;
+            border-bottom: 1px dotted #b39478;
+        }
+
+        .site-footer a:hover {
+            border-bottom-style: solid;
+            color: #442e19;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 680px) {
+            .card {
+                padding: 1.5rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+            .hero .sub-headline {
+                font-size: 1rem;
+                padding: 0.2rem 1.2rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .explain {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.8rem;
+            }
+            .hero {
+                padding: 2rem 1rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero 区 -->
+        <div class="card hero">
+            <h1>你收藏的 <span style="color: #7f5937;">jiuyou.com</span></h1>
+            <div class="sub-headline">再次回来 · 总有新发现</div>
+            <p>
+                有些站点值得放在书签栏，不定期回去看一眼。<br>
+                <a href="https://soft-jiuyou.com" class="inline-link">jiuyou.com</a> 就是这样一个角落——
+                不喧哗，但内容常新，界面安静，适合慢慢浏览。
+            </p>
+            <div style="margin-top: 1.8rem;">
+                <a href="https://soft-jiuyou.com" class="rounded-link">jiuyou.com</a>
+            </div>
+        </div>
+
+        <!-- 优势区：收藏 / 再次访问的四个理由 -->
+        <div class="card">
+            <h2 style="font-weight: 520; color: #3b2b1a; margin-bottom: 0.2rem;">为什么值得再次回来</h2>
+            <p style="color: #5f4c37; margin-bottom: 1.4rem; font-size: 0.98rem;">四个小细节，构成持续关注的理由</p>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>📌 内容稳中有变</h3>
+                    <p>不是一成不变的公告板，而是有节奏地补充、调整，让你每次回来都恰好遇到一点新东西。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🧭 导航直白</h3>
+                    <p>没有层层嵌套的菜单，想找的功能或信息，通常一页之内就能看到，省心。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🕊️ 不打扰体验</h3>
+                    <p>没有弹窗、没有强制推送，也不会要求登录。纯粹的内容展示，安静地等你。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>📎 存档感强</h3>
+                    <p>很多页面保留着历史版本或更新记录，像是随时可以翻阅的归档小册子。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 说明区 + 场景提示 -->
+        <div class="card explain">
+            <div class="explain-text">
+                <h2>放在收藏夹，偶尔来坐坐</h2>
+                <p>
+                    网络世界信息过载，但总有几个网站像老朋友一样，
+                    不需要每天刷，却会在你想起时，给你一种「噢，这里还有更新」的踏实感。
+                </p>
+                <p>
+                    把 <a href="https://soft-jiuyou.com" class="inline-link">jiuyou.com</a> 放进书签，
+                    不必刻意惦记。隔两周、一个月，顺手点开——页面加载完，熟悉的布局里藏着调整过的细节，
+                    也许是一段新的文字，也许是一个实用的小清单。
+                </p>
+                <p style="margin-top: 0.2rem;">
+                    它不需要你频繁访问，但如果你是个喜欢「慢慢留意」的人，
+                    它会成为浏览器里一个温和的坐标。
+                </p>
+            </div>
+            <div class="explain-highlight">
+                “收藏不是占有，而是保留一个随时可以回去的地址。”
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="card faq-summary">
+            <h2>一些你可能想问的</h2>
+            <div class="faq-item">
+                <strong>这个网站更新频繁吗？</strong>
+                <p>不算频繁，但内容质量优先。适合隔一阵子回看，每次都有一些新的补充或改进。</p>
+            </div>
+            <div class="faq-item">
+                <strong>需要注册或者订阅吗？</strong>
+                <p>什么都不需要。直接打开 <a href="https://soft-jiuyou.com" class="inline-link">jiuyou.com</a> 就能浏览全部内容，没有会员墙。</p>
+            </div>
+            <div class="faq-item">
+                <strong>手机上打开效果怎么样？</strong>
+                <p>页面针对不同屏幕做了适配，手机、平板、电脑都能正常阅读，字体和间距也舒服。</p>
+            </div>
+        </div>
+
+        <!-- 底部链接 -->
+        <div class="card" style="padding: 1rem 2rem;">
+            <div class="site-footer">
+                <span>📎 书签直达：</span>
+                <a href="https://soft-jiuyou.com">jiuyou.com</a>
+                <span>— 或 —</span>
+                <a href="https://soft-jiuyou.com" class="rounded-link" style="font-size: 0.9rem; padding: 0.3rem 1rem;">jiuyou.com</a>
+                <span style="color: #6a5440;">· 收藏，然后偶尔回来</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
