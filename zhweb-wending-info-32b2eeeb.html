@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问鼎娱乐 · 从容而立的游戏主张</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f7f3ed;
+            font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+            color: #2c2a28;
+            line-height: 1.75;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 800px;
+            width: 100%;
+            background-color: #fdfbf9;
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.03);
+            transition: all 0.15s ease;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.75rem;
+            }
+            .page {
+                padding: 2rem 1.2rem;
+                border-radius: 14px;
+            }
+        }
+
+        /* 开场短句 —— 类似引题 */
+        .opening-line {
+            font-size: 1.1rem;
+            letter-spacing: 0.04em;
+            margin-bottom: 1.8rem;
+            color: #6b5e53;
+            border-left: 3px solid #cbb7a3;
+            padding-left: 1rem;
+            font-style: italic;
+        }
+
+        /* 主标题 */
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin: 0 0 0.25rem 0;
+            color: #3d342e;
+            line-height: 1.2;
+        }
+
+        .subhead {
+            font-size: 0.95rem;
+            color: #8a7b6f;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e8dfd6;
+            padding-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        /* 承接段落 */
+        .intro-text p {
+            margin-bottom: 1.4rem;
+            text-align: justify;
+            font-size: 1.02rem;
+        }
+
+        .intro-text p:first-of-type::first-letter {
+            font-size: 2.8rem;
+            float: left;
+            line-height: 1;
+            margin-right: 0.4rem;
+            margin-top: 0.15rem;
+            font-weight: 400;
+            color: #8f7a68;
+        }
+
+        /* 特点列表 （信息密度高） */
+        .feature-block {
+            background: #f6f1eb;
+            padding: 1.6rem 2rem;
+            border-radius: 16px;
+            margin: 2rem 0 2.2rem 0;
+            box-shadow: inset 0 0 0 1px #ebe2d9;
+        }
+
+        .feature-block h2 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            color: #5f5146;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-marker {
+            font-weight: 700;
+            color: #b29b86;
+            font-size: 1rem;
+            min-width: 1.8rem;
+        }
+
+        .feature-item p {
+            margin: 0;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #3d352e;
+        }
+
+        .feature-item strong {
+            color: #4f3f33;
+            font-weight: 600;
+        }
+
+        /* 引用/提示框（温和收束） */
+        .insight-box {
+            background: #fffbf7;
+            border: 1px solid #ddd3c8;
+            border-left: 5px solid #b6a086;
+            padding: 1.3rem 1.8rem;
+            margin: 2rem 0 1.6rem 0;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.98rem;
+            color: #3d352e;
+        }
+
+        .insight-box p {
+            margin: 0.4rem 0;
+        }
+
+        .insight-box .attribution {
+            font-size: 0.85rem;
+            color: #887b70;
+            margin-top: 0.6rem;
+            text-align: right;
+            font-style: italic;
+        }
+
+        /* 温和结尾 */
+        .closing {
+            margin-top: 2.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e7ddd3;
+            font-size: 0.98rem;
+            color: #5c5046;
+        }
+
+        .closing a {
+            color: #7b6857;
+            text-decoration: none;
+            border-bottom: 1px dotted #cbb9a9;
+            transition: border 0.2s, color 0.2s;
+        }
+
+        .closing a:hover {
+            color: #3f3229;
+            border-bottom: 1px solid #7b6857;
+        }
+
+        .faq-mini {
+            margin-top: 2.5rem;
+            background: #fcf9f5;
+            padding: 1.2rem 1.8rem;
+            border-radius: 14px;
+            border: 1px solid #e5dbd0;
+        }
+
+        .faq-mini h3 {
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: #6b5b4e;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-mini summary {
+            cursor: pointer;
+            font-weight: 500;
+            color: #4d4036;
+            padding: 0.2rem 0;
+            font-size: 0.96rem;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            color: #b39d88;
+        }
+
+        .faq-mini details p {
+            margin: 0.4rem 0 0.2rem 0.8rem;
+            font-size: 0.92rem;
+            color: #52473e;
+            border-left: 2px solid #dacfc4;
+            padding-left: 0.8rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e7ddd3;
+            margin: 2rem 0 1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 开场短句 -->
+    <div class="opening-line">
+        ︎ 一本关乎分寸、取舍与持久趣味的笔记。
+    </div>
+
+    <h1>问鼎娱乐</h1>
+    <div class="subhead">一种将沉淀与节奏放在首位的游戏哲学</div>
+
+    <!-- 承接段落：从关键词背后的主题展开 -->
+    <div class="intro-text">
+        <p>
+        游戏从来不只是消遣。在信息过载的时代，主动选择性的娱乐方式，反而成为稀缺的心智练习。所谓「问鼎」，并非指向胜负，而是对自我节奏的确认——知道何时投入、何时暂停，在规则与自由之间找到稳固的支点。<a href="https://zhweb--wending.com" style="color:#7b6857; text-decoration: none; border-bottom: 1px dotted #cbb9a9;">问鼎娱乐</a>所传达的，正是这种清醒的参与感：不盲从于热度，不消耗于无休止的刺激，而是以成年人的自律去享受每一次交互。
+        </p>
+        <p>
+        如果把娱乐比作一次航行，那么最重要的不是船速，而是舵手的定力。一个平台、一种机制，如果能在提供沉浸感的同时保留退出的体面，在鼓励挑战的同时不制造焦虑，它就值得被认真对待。这正是我们在设计理念中反复校准的尺度。
+        </p>
+    </div>
+
+    <!-- 特点列表：信息密度高，自然嵌入场景 -->
+    <div class="feature-block">
+        <h2>· 四个被反复审视的细节</h2>
+
+        <div class="feature-item">
+            <span class="feature-marker">01</span>
+            <p><strong>节奏可调</strong> —— 不设强制连续任务，每一轮参与时长由你决定。退出与回归之间没有惩罚，只有尊重。</p>
+        </div>
+        <div class="feature-item">
+            <span class="feature-marker">02</span>
+            <p><strong>反馈克制</strong> —— 界面不做频闪式提醒，通知仅保留必要信息。情绪曲线由内容本身带动，而非被推送绑架。</p>
+        </div>
+        <div class="feature-item">
+            <span class="feature-marker">03</span>
+            <p><strong>规则透明</strong> —— 所有概率、奖池与机制变动均以明文存档。信息不对称被降到最低，判断力回归玩家手中。</p>
+        </div>
+        <div class="feature-item">
+            <span class="feature-marker">04</span>
+            <p><strong>社群低噪</strong> —— 聊天与排行榜默认折叠，不制造虚假紧迫。交流是工具，不是压力源。</p>
+        </div>
+    </div>
+
+    <!-- 提示框 / 引用块（温和但有观点） -->
+    <div class="insight-box">
+        <p>“娱乐的深层价值，不在于它让我们忘记了时间，而在于时间过后，我们依然记得自己是谁。”</p>
+        <div class="attribution">—— 摘自某次内部讨论笔记</div>
+    </div>
+
+    <!-- 场景/FAQ 摘要 融入 -->
+    <div class="faq-mini">
+        <h3>▸ 常见思考摘要</h3>
+        <details>
+            <summary>为什么强调“退出尊严”？</summary>
+            <p>一款值得投入时间的平台，应当允许用户无负担地暂停或离开。无论是短期休息还是长期调整，账户与进度不受侵蚀，这是对理性娱乐的基本承诺。</p>
+        </details>
+        <details>
+            <summary>“高信息密度”意味着复杂吗？</summary>
+            <p>不。恰恰相反：密集的是设计思考，而非操作步骤。界面保持干净，选项归类清晰，让每一次点击都有明确的意图对应。</p>
+        </details>
+        <details>
+            <summary>这种主张适合所有人吗？</summary>
+            <p>它更适合那些对娱乐质量有要求的人——不满足于被动填充时间，而是希望每一次选择都能带来真实的满足感与反思空间。</p>
+        </details>
+    </div>
+
+    <!-- 温和结尾，自然嵌入链接 -->
+    <div class="closing">
+        <p>如果你也认同“娱乐应当保有分寸与质感”，那么<a href="https://zhweb--wending.com">问鼎娱乐</a>所倡导的方式或许能和你产生共鸣。它不承诺奇迹，但提供一种清晰的框架——让你在放松的同时，依然掌控着属于自己的节奏。</p>
+        <p style="margin-top: 0.8rem; font-size: 0.92rem; color: #7f7267;">—— 以上内容基于真实设计理念整理，不构成任何形式的使用邀请或保证。</p>
+    </div>
+
+    <hr>
+    <p style="font-size: 0.8rem; text-align: center; color: #a19388; letter-spacing: 0.03em;">创造力种子 · 仅供叙事结构变化参考</p>
+</div>
+</body>
+</html>
